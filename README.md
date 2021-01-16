@@ -3,3 +3,5 @@ LaTeX šablona pro sazbu studijních materiálů vytvořených studenty k příp
 
 ## Použití
 Nejjednodušší je stáhnout tento repozitář jako zip a nahrát jej do online LaTeX compileru [Overleaf](https://overleaf.com). 
+
+V souboru main.tex je nutné upravit pouze položky v kategorii Důležité (pro vysázení titulní stránky), dál stačí upravovat pouze text/text.tex soubor, případně si práci rozdělit do více souborů ve složce text a ty přidat do main.tex.
