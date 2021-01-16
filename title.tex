@@ -20,9 +20,9 @@
     % Bottom of the page
 	{
 	\begin{tabular}{ ll }
-         \ifthenelse{\equal{\@author}{}}{}{Text: & \@author}\\
-         \ifthenelse{\equal{\grammar}{}}{}{Korektura: & \grammar}\\
-         \ifthenelse{\equal{\formatting}{}}{}{Formátování: & \formatting}\\
+        \ifthenelse{\equal{\@author}{}}{}{Text: & \@author}
+        \ifthenelse{\equal{\grammar}{}}{}{\\Korektura: & \grammar}
+        \ifthenelse{\equal{\formatting}{}}{}{\\Formátování: & \formatting\\}
     \end{tabular}
 	} \hfill {\large \today\par}
     \clearpage
