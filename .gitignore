@@ -9,6 +9,7 @@
 *.toc
 *.aux
 __latexindent_temp.tex
+_minted*
 # Build results
 *.pdf
 !FEKT-tex.pdf
