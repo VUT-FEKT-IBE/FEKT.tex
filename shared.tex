@@ -153,12 +153,22 @@
 
 % Sazba zdrojových kódů
 \usepackage[formats]{listings}
-% Sazba zdrojových kódů
-\usepackage[newfloat]{minted}
-% Nastavení barev 'minted' kódů
-\usemintedstyle{pastie}
 % Přepnutí prostředí 'code' do režimu výpisu kódu
 \newenvironment{code}{\captionsetup{type=listing}}{}
+
+% Balíček 'minted' budeme používat pouze pokud je jeho hodnota nastavena na 'true'
+\providecommand{\docminted}{false}
+\ifthenelse{\equal{\docminted}{true}}
+{
+    % Sazba zdrojových kódů
+    \usepackage[newfloat]{minted}
+    % Nastavení barev 'minted' kódů
+    \usemintedstyle{pastie}
+}
+{
+    % \docminted není 'true', nic neprovádíme
+    % Pokud je v dokumentu 'minted' prostředí, dokument se nepodaří přeložit.
+}
 
 %%%%%%%%%%%
 % TITULKA %
