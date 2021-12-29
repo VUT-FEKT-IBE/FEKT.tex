@@ -1,14 +1,26 @@
 # FEKT.tex
 
-LaTeX šablona pro sazbu studijních materiálů vytvořených studenty k přípravě na zkoušky. Dokument obsahuje základní nastavení a představení různých funkcí.
+LaTeX šablona pro sazbu studijních materiálů vytvořených studenty k přípravě na zkoušky.
+Dokument obsahuje základní nastavení a představení různých funkcí.
 
 ## Použití
 
-Nejjednodušší je stáhnout tento repozitář jako zip a nahrát jej do online LaTeX compileru [Overleaf](https://overleaf.com). 
+Nejjednodušší je stáhnout tento repozitář jako zip a nahrát jej do online LaTeX compileru [Overleaf](https://overleaf.com).
+
+## GitHub releases
+
+S pomocí GitHub Actions je nyní možné používat GitHub release na vydání nové verze pdf.
+Stačí pouze nový commit v `main` větvi a GitHub Actions se o build a release postará.
+Taktéž máme workflow pro kontrolu příchozích Pull Requestů, který neprojde pokud build selže.
+Nejnovější release této šablony můžete vidět [zde](https://github.com/VUT-FEKT-IBE/FEKT.tex/releases/latest).
+
+_Pozn.: Build se týká pouze souboru [`main.tex`](main.tex), proto byste neměli přidávat jiné hlavní .tex soubory._
 
 ### Co neupravovat: `shared.tex`
 
-Obsah souboru [`shared.tex`](shared.tex) obsahuje kompletní nastavení stylu dokumentu. Nikdy jej neupravujte, všechna případná doplnění provádějte v souboru `main.tex`. V budoucnu tak bude možné vyměnit váš zkopírovaný soubor za novější a nepřijdete tak o žádné změny, které jste provedli.
+Obsah souboru [`shared.tex`](shared.tex) obsahuje kompletní nastavení stylu dokumentu.
+Nikdy jej neupravujte, všechna případná doplnění provádějte v souboru `main.tex`.
+V budoucnu tak bude možné vyměnit váš zkopírovaný soubor za novější a nepřijdete tak o žádné změny, které jste provedli.
 
 Pokud zakládáte dlouhodobější projekt, proveďte následující krok:
 
@@ -39,7 +51,8 @@ Tento soubor si zkopírujte pouze jednou na začátku, k jeho aktualizacím by d
 
 Kam budete psát samotný text dokumentu je na vás.
 
-Tento repozitář je připravený pro větší dokumenty a obsah se vkládá do `text/01.tex`. Pro každý nově vytvořený soubor musíte také přidat `\include{}` ve vašem `main.tex`.
+Tento repozitář je připravený pro větší dokumenty a obsah se vkládá do `text/01.tex`.
+Pro každý nově vytvořený soubor musíte také přidat `\include{}` ve vašem `main.tex`.
 
 Pokud vytváříte menší dokument, může pro vás být přehlednější složku `text/` nepoužívat a vytvořit si nový textový soubor `text.tex` hned v kořenové složce; v tomto případě pak upravte `\include{}` volání ve vašem `main.tex`.
 
