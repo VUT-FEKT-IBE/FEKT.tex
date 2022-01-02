@@ -26,10 +26,12 @@
 
 % Geometrie stránky
 \usepackage[
-    % Vnitřní a vnější okraj
-    hmargin={20mm,30mm},
     % Horní a dolní okraj
-    vmargin={25mm,25mm},
+    tmargin=25mm,
+    bmargin=25mm,
+    % Vnitřní a vnější okraj
+    lmargin=30mm,
+    rmargin=20mm,
     % Velikost zápatí
     footskip=17mm,
     % Vypnutí záhlaví
@@ -216,5 +218,6 @@
     \hfill
     \today
 
-    \clearpage
+    \thispagestyle{empty}
+    \newpage
 }
