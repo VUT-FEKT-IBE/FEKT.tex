@@ -1,148 +1,180 @@
-\section{Lorem ipsum dolor} % Nadpis
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula vestibulum felis, hendrerit aliquet sapien sodales nec. Phasellus semper quis orci at ultricies. Mauris non magna vitae massa faucibus vestibulum vel id lorem. Vestibulum interdum lobortis nisl, ut rhoncus dui facilisis sed. Donec eget accumsan lectus. Etiam metus leo, tempus vitae velit non, sagittis tempus dui. Vestibulum nec consectetur velit.
+\section{LaTeX rychlokurz}
+\subsection{\LaTeX}
+LaTeX je sázecí systém pro tvorbu odborných dokumentů. Uživatel píše plain text, který je pak dle použitých značek převeden na výsledný dokument. Oproti tomu například ve Wordu píšmene formátovaný text, jinak také \enquote{What You See Is What You Get}. Hlavními výhodami LaTeXu jsou především vysoká typografická kvalita, jednoduchá přenositelnost (už žádné rozbité word dokumenty) a jednotnost stylu (velikosti písma, typy fontů\dots - vše je definováno v šabloně).
 
-\subsection{Podnadpis}
-Aenean molestie lectus nec metus consectetur tincidunt. Vivamus volutpat varius nibh, vitae blandit turpis tincidunt nec. Donec a nulla sit amet risus tristique fringilla eu vel magna. Vivamus ultricies finibus erat, nec convallis lorem efficitur id. Nam vitae augue laoreet, rutrum nibh vel, ultrices ante. 
+\subsection{LaTeX na FEKTu}
+Všechny oficiální šablony pro studium na FEKTu můžete najít na 
+\url{https://latex.feec.vutbr.cz/}
 
-Duis sollicitudin mi sit amet faucibus auctor. Curabitur non erat nibh. Nulla est orci, egestas a risus vel, faucibus finibus nunc. Nullam id arcu a libero bibendum tristique. Aliquam suscipit, velit a rutrum faucibus, purus urna mattis lacus, in sodales risus libero at dolor. Mauris efficitur fringilla metus, at cursus leo porttitor pharetra. Nullam blandit mattis dui, sodales sollicitudin est varius a. Vestibulum erat mauris, consequat vitae laoreet sit amet, sagittis id sem. Ut vel leo facilisis metus efficitur rhoncus ut quis neque. Mauris nisl eros, rutrum ac lectus vitae, condimentum congue leo. Suspendisse mattis urna in dui tristique placerat.
+\subsection{Jak na Overleaf?}
+Nejdříve si z \url{https://github.com/VUT-FEKT-IBE/FEKT.tex}
+stáhneme tuto šablonu. Dále si na overleafu vybereme možnost \texttt{New Project > Upload Project} a vybereme staženou šablonu.
 
-\subsubsection{Podpodnadpis}
-Sed euismod dui at est vestibulum rhoncus. Curabitur mattis dui sit amet ligula sagittis bibendum. Fusce aliquam lorem eget mauris ullamcorper ornare. Duis quis arcu sapien. Cras dapibus volutpat dui, at malesuada massa auctor nec. Phasellus turpis quam, varius ac pharetra et, gravida nec ligula. Morbi lobortis elementum nibh, in pharetra dui pulvinar luctus. Fusce convallis dictum tempor.
+Po otevření šablony najedeme na menu v levém horním rohu v možností \texttt{Main Document} a vybereme \texttt{main.tex} nebo \texttt{text/01.tex}. Dokument samotný pak kompilujeme \textbf{mimo} \texttt{shared.tex}. Jinak se PDF nevytvoří.
 
-\vspace{0.5cm} % vertikální odsazení
-\noindent Víceúrovňový seznam: 
-\begin{itemize}[noitemsep]
-    \item Lorem:
-    \begin{itemize}[noitemsep]
-        \item Lorem ipsum dolor sit
-        \item Lorem ipsum dolor sit
-        \item Lorem ipsum dolor sit
+Pokud chcete oddělit jednotlivé textové soubory a vkládat je do dokumentu zvlášť, stačí v záložce \texttt{text} vytvořit nový soubor s příponou \texttt{.tex}. V souboru \texttt{main.tex} pak daný soubor načteme pomocí příkazu \verb|\include{file_path}|.
+
+Dokument samotný kompilujeme pomocí tlačítka \texttt{Recompile}, případně pomocí zkratky CTRL+ENTER. Tlačítko pro stažení PDF souboru se nachází vedle \texttt{Recompile}.
+
+
+\subsection{Struktura}
+\begin{itemize}
+    \item Pro vytvoření\uv{hlavního nadpisu} (1.; 2. \dots) použijeme příkaz \verb|\section{text}|, jednotlivé oddíly se číslují automaticky vzesupně. 
+    \item Pro vytvoření podnadipsů (1.1; 2.2 \dots) použijeme příkaz  \verb|\subsection{text}|. Stejně jako u hlavního nadpisu se čísluje automaticky
+   |
+    \item \textbf{Itemizace:} Pro itemizaci použijeme prostředí itemize
+    
+    Jednotlivé body oddělujeme pomocí \verb|\item|.
+    \item \textbf{Enumerace:} Principielně funguje stejně jako itemizace, použijeme prostředí \texttt{enumerate}  Jednotlivé body jsou pak místo označení pomlček  očíslovány
+    \item U itemizace a enumerace můžeme prostředí do sebe vnořovat
+
+  
+    \begin{multicols}{2}
+    [ITEMIZACE]
+    \setlength{\columnsep}{10cm}
+     \begin{lstlisting}[frame = single]
+    \begin{itemize}
+        \item text1
+        \begin{itemize}
+            \item text2
+        \end{itemize}
     \end{itemize}
-    \item Ipsum:
-    \begin{itemize}[noitemsep]
-        \item Lorem ipsum dolor sit
-        \item Lorem ipsum dolor sit
-        \item Lorem ipsum dolor sit
+    \end{lstlisting}
+    \columnbreak
+   \begin{centering}
+     
+   \end{centering}
+     \begin{itemize}
+        \item text1
+        \begin{itemize}
+            \item text2
+        \end{itemize}
     \end{itemize}
+    
+    \end{multicols}
+
+          
+        
+        
+    \item Nové odstavce se vytváří automaticky, pokud vynecháme 1 řádek. Řádek jako takový můžeme také zalomit \verb|\\| aniž bychom pak začali nový odstavec viz níže
+    \item Pro nezalomitelnou mezeru můžeme použít \verb|~| -- \verb|v~domě|
+\end{itemize}
+ 
+    \textbf{Zalamování řádků}
+    TEXT TEXT TEXT TEXT TEXT\verb|\\|\\ TEXT TEXT TEXT
+    
+    \textbf{Vynechání řádku}
+    TEXTT TEXT TEXT TEXT TEXT \verb|vynechán řádek|
+    
+    TEXT TEXT TEXT TEXT
+\subsection{Vizuální značky}
+\begin{itemize}
+    \item \verb|\textbf{text}| pro tučný text - \textbf{text}
+    \item \verb|\textit{text}| pro kurzívu - \textit{text}
+    \item \verb|\enquote{text}| pro české uvozovky -\enquote{text}
+    \item \verb|\texttt{text}| pro strojový text -\texttt{text}
+
 \end{itemize}
 
-\newpage % konec stránky
-
-\section{Code bloky}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula vestibulum felis, hendrerit aliquet sapien sodales nec. Phasellus semper quis orci at ultricies. Mauris non magna vitae massa faucibus vestibulum vel id lorem. Vestibulum interdum lobortis nisl, ut rhoncus dui facilisis sed. Donec eget accumsan lectus. Etiam metus leo, tempus vitae velit non, sagittis tempus dui. Vestibulum nec consectetur velit.
-
-\begin{code} % obal code blocku pro možnost mít pod ním popis
-\begin{minted} % code block, mělo by stačit změnit pouze jazyk viz: https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted#Reference_guide
-[frame=lines,framesep=2mm,baselinestretch=1.2,fontsize=\footnotesize,linenos]
-{python}
-import random
-
-from .data import WORDS
-
-class TextLorem():
-    def __init__(self, wsep=' ', ssep=' ', psep='\n\n',
-                 srange=(4, 8), prange=(5, 10), trange=(3, 6),
-                 words=None):
-        self._wsep = wsep
-        self._ssep = ssep
-        self._psep = psep
-        self._srange = srange
-        self._prange = prange
-        self._trange = trange
-        if words:
-            self._words = words
-        else:
-            self._words = WORDS
-
-    def sentence(self):
-        n = random.randint(*self._srange)
-        s = self._wsep.join(self._word() for _ in range(n))
-        return s[0].upper() + s[1:] + '.'
-
-    def paragraph(self):
-        n = random.randint(*self._prange)
-        p = self._ssep.join(self.sentence() for _ in range(n))
-        return p
-
-    def text(self):
-        n = random.randint(*self._trange)
-        t = self._psep.join(self.paragraph() for _ in range(n))
-        return t
-
-    def _word(self):
-        return random.choice(self._words)
-\end{minted}
-\caption{Lorem ipsum generátor} % popis code bloku
-\label{code:loremipsum}         % pro hyperlinkování
-\end{code}
-
-\newpage
-
-\section{Obrázky}
-
-\begin{figure}[h!] % obal pro možnost popisku
-\begin{center}     % vycentrování
- \includegraphics[width=\textwidth]{images/Bug Fixing.png} % vložení obrázku o maximální šířce jako je šířka dokumentu
- \caption{Bug fixing (free to use obrázek z manypixels.co)}   % popis
- \label{img:1}      % odkaz
-\end{center}
-\end{figure}
-
-\newpage
-
-\vspace{0.5cm}
-\begin{figure}[h!]
-\begin{center}
-\begin{tikzpicture}
-  [auto=left,every node/.style={text width=2.5cm,fill=cyan!20},align=center,anchor=west]
-  
-  \node (A) at (-4.5,4)  {Lorem};
-  \node (B) at (0,4)     {Ipsum};
-  \node (C) at (0,2)     {Dolor};
-  \node (D) at (0,0)     {Sit};
-  \node (E) at (4.5,4)   {Amet};
-  \node (F) at (4.5,2)   {Consectetur};
-
-  \foreach \from/\to in {A/B,A/C,A/D,B/E,B/F}
-    \draw (\from.east) -- (\to.west);
-  
-\end{tikzpicture}
-\caption{Vektorová grafika}
-\label{img:2}
-\end{center}
-\end{figure}
+\subsection{Obrázky}
+\begin{itemize}
+    \item Nejdříve do předpřipravené složky (images) v šabloně nahrajeme obrázek, který chceme použít
+    \item Obrázky se číslují automaticky
+    \item Pro vložení obrázku do textu použijeme prostředí \verb|\begin{figure}...\end{figure}|
+    
+    \item Určíme\begin{itemize}
+        \item Umístění - defaultně vlevo
+        \item Cestu k souboru
+        \item Caption/popisek obrázku
+        \item Label - pomocí labelů můžeme na obrázky odkázat jinde v text pomocí příkladu \verb|\ref{}|
+        \item Label a Caption jsou optional body
+    \end{itemize}
+\end{itemize}
+\begin{lstlisting}[frame = single]
+    \begin{figure}
+        \centering 
+        \includegraphics{file_path} 
+        \caption{figure caption}
+        \label{fig:label}
+    \end{figure}
+\end{lstlisting}
 
 
-\section{Odkazy}
+\begin{subsection}{Matematika a vzorce}
+\begin{itemize}
+\item In-line mód pomocí prostředí \verb|$ váš vzorec $|
+\item Out-line mód pomocí prostředí \verb|$$ váš vzorec $$|
+\item Můžeme také použít prostředí \verb|\begin{align}...\end{align}| pokud chceme out-line, očíslovaný vzorce.
 
-\noindent Pro~odkazování v~rámci dokumentu slouží \emph{label}, podívej se znovu na~výpis~kódu~\ref{code:loremipsum} a~obrázek~\ref{img:1} (tato čísla jsou klikací odkazy).
+\item Důležité symboly:
+\begin{itemize}
+    
+    \item \verb|_| pro lower index \verb|x_1| = $x_1$
+    \item \verb|^| pro upper index \verb|x^1| = $x^1$
+    \item Pokud chceme do horního nebo spodního indexu napsat vzorec nebo výraz, dáme ho do \verb|{}| -- \verb|x^{e-1}| = $x^{e-1}$
+    \item \verb|\{| a \verb|\}| pro složené závorky v math modu.
+    \item Pokud chceme zapsat písmeno nebo slovo přímým řezem, použijeme \verb|\mathrm{}| -- používáme při zápisu např. konstant
+    \item \verb|\langle| a \verb|\rangle| pro ostré závorky  $\langle \rangle$
+    \item Pokud chceme aby se závorka přízpůsobila velikosti vzorce použijeme\\ \verb|\left(......\right)| $$\left(\frac{1}{\frac{1}{2}}\right)$$
 
-\noindent Odkazy je možné uvádět jako \href{http://www.sharelatex.com}{text} nebo URL: \url{http://www.sharelatex.com}.
+    \item \verb|\frac{}{}| pro zlomky \verb|\frac{1}{2}| -- $\frac{1}{2}$
+    \item \verb|\sum^x_1{}| pro sumy, pomocí \verb|^| a \verb|_| určíme horní a dolní hranici -- $\sum^1_0$
+    \item \verb|\int^1_x{}| pro integrály, pomocí \verb|^| a \verb|_| určíme horní a spodní hranice -- $\int{x+1 \mathrm{ d}x}$
+    \item Písmena řecké abecedy: \verb|\anglický_název| -- \verb|\alpha| pro malé alpha, \verb|\Alpha| pro velké Alpha. Stejně se zbytkem písmen.
+   
+\end{itemize}
+\end{itemize}
+\begin{multicols}{2}
+    \begin{lstlisting}[frame = single]
+  E\left\{\chi^2(n)\right\} 
+  = E(U_1^2+...+U_n^2) =n
+\end{lstlisting}
+\columnbreak
+$E\left\{\chi^2(n)\right\} = E(U_1^2+...+U_n^2) = n$
+\end{multicols}
 
-\section{Tabulky}
 
-\begin{center}
-\begin{tabular}{ c c c }
-    cell 1 & cell 2 & cell 3 \\ 
-    cell 4 & cell 5 & cell 6 \\  
-    cell 7 & cell 8 & cell 9 \\
-\end{tabular}
-\end{center}
 
-\begin{center}
-\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
-\hline
-    \multicolumn{4}{|c|}{Country List} \\
-\hline
-    Country Name or Area Name & ISO ALPHA 2 Code & ISO ALPHA 3 Code & ISO numeric Code \\
-\hline
-    Afghanistan    & AF & AFG & 004 \\
-    Aland Islands  & AX & ALA & 248 \\
-    Albania        & AL & ALB & 008 \\
-    Algeria        & DZ & DZA & 012 \\
-    American Samoa & AS & ASM & 016 \\
-    Andorra        & AD & AND & 020 \\
-    Angola         & AO & AGO & 024 \\
-\hline
-\end{tabular}
-\end{center}
+\end{subsection}
+
+\subsection{Tabulky}
+\begin{itemize}
+    \item Pro vytváření tabulek použijeme prostředí \verb|\begin{table}{}...\end{table}|
+    \item Podobně jako u obrázků můžeme určit parametry:\\ \verb| \centering \caption{} \label{}|
+    \item V druhé \verb|{}| určujeme allignement hodnot ve sloupcích - l = left, c = center, r = right. Případně použijeme | pro oddělení daných sloupců lajnou viz příklad níže
+    \item Řádek v tabulcu zalamujeme pomocí \verb|\\|
+    \item Pro oddělení řádků lajnou použijeme \verb|\hline| za zalomením řádku tabulky, můžeme i několikrát. Opět viz příklad níže.
+    \item Jednotlivé celly v tabulce oddělujeme pomocí \verb|&|.
+ \end{itemize}
+%
+%
+
+\begin{multicols}{2}
+    [TABULKY]
+
+\begin{lstlisting}[frame = single]
+\begin{table}
+    \centering
+    \begin{tabular}{c|c|c}
+    num 1 & num 2 & num 3 \\
+    \hline\hline
+         1 & 1 & 1  \\ \hline
+         2 & 2 & 2  \\ \hline
+         3 & 3 & 3  \\ \hline
+         4 & 4 & 4  \\ 
+    \end{tabular}
+\end{table}
+\end{lstlisting}
+\columnbreak
+
+    \begin{tabular}{c|c|c}
+    num 1 & num 2 & num 3 \\ \hline\hline
+        1 & 1 & 1  \\ \hline
+        2 & 2 & 2  \\ \hline
+        3 & 3 & 3  \\ \hline
+        4 & 4 & 4  \\ 
+    \end{tabular}
+\end{multicols}
+
+
+
