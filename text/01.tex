@@ -1,7 +1,7 @@
 \clearpage
-\section{Rychlokurz LaTeXu}
+\section[O~LaTeXu]{O~\LaTeX{}u}
 
-\subsection{\LaTeX}
+\subsection{Co je \LaTeX}
 
 \LaTeX{} je sázecí systém pro tvorbu odborných dokumentů.
 Uživatel píše \emph{plain text}, který je pak dle použitých značek převeden na výsledný dokument.
@@ -33,11 +33,11 @@ Tlačítko pro stažení PDF souboru se nachází vedle \texttt{Recompile}.
 \clearpage
 \section[Struktura LaTeXového ]{Struktura \LaTeX{}ového textu}
 
-Pro~vytvoření \enquote{hlavního nadpisu} (jako je název kapitoly hned v~předcházejícím řádku) použijeme příkaz \verb|\section{text}|.
+Pro~vytvoření \enquote{hlavního nadpisu} (jako je název kapitoly hned nad tímto odstavcem) použijeme příkaz \verb|\section{text}|.
 Jednotlivé oddíly se číslují automaticky vzesupně.
 
-Pro~vytvoření podnadipsů (třeba část \ref{sec:obrazky} níže) použijeme příkaz  \verb|\subsection{text}|.
-Stejně jako hlavní nadpisy se čísluje automaticky.
+Pro~vytvoření podnadpisů (třeba část \ref{sec:seznamy} níže) použijeme příkaz  \verb|\subsection{text}|.
+Stejně jako hlavní nadpisy se číslují automaticky.
 
 Nové odstavce se vytváří automaticky, pokud vynecháme jeden řádek.
 Řádek jako takový můžeme také zalomit dvěma zpětnými lomítky \verb|\\|.
@@ -74,6 +74,7 @@ A~ušetříte tím i~čas, protože tyto tvrdé mezery nebudete muset zpětně d
 Můžete tak v~textu zanechávat poznámky (své zdroje, nejasnosti, TODO) aniž by byly vidět ve~finální verzi dokumentu.
 
 \subsection{Seznamy}
+\label{sec:seznamy}
 
 Nečíslované seznamy se vytváří v~prostředí \verb|itemize|:
 jednotlivé body oddělujeme značkou \verb|\item|.
@@ -86,14 +87,14 @@ Tato dvě prostředí do~sebe lze vnořovat.
 \onehalfspacing
 \begin{verbatim}
 \begin{itemize}
-  \item itemize prvni urovne
-  \begin{itemize}
-    \item itemize druhe urovne
-    \begin{enumerate}
-      \item prvni polozka enumerate
-      \item druha polozka enumerate
-    \end{enumerate}
-  \end{itemize}
+    \item itemize první úrovně
+    \begin{itemize}
+        \item itemize druhé úrovně
+        \begin{enumerate}
+            \item první položka enumerate
+            \item druhá položka enumerate
+        \end{enumerate}
+    \end{itemize}
 \end{itemize}
 \end{verbatim}
 
@@ -117,7 +118,7 @@ Většina autorů píše stejným způsobem jako ve~Wordu, a~\enquote{Enter} v~k
 Psát každou větu na~svůj řádek však přináší výhodu: když je kód verzován pomocí \texttt{git}u, vznikají menší \texttt{diff}y a~změny jsou lépe vidět.
 Tak je strukturován i~tento dokument.
  
-\subsection{Vizuální značky}
+\subsection{Zvýraznění v~textu}
 
 \begin{table}[ht]
 \centering
@@ -131,36 +132,8 @@ značka & ukázka \\
 \end{tabular}
 \end{table}
 
-\subsection{Obrázky}
-\label{sec:obrazky}
-
-Do~složky \texttt{images/} nahrajte obrázek ve~formátu \texttt{jpg}, \texttt{png} nebo \texttt{pdf}.
-
-Pro~jeho vložení do~textu se používá prostředí \texttt{figure}, samotné vložení zajištuje příkaz \texttt{includegraphics}.
-Nemusíte psát příponu, \LaTeX{} vybere za~vás tu nejlepší možnost.
-
-Je zvykem také uvádět popis obrázku (\texttt{caption}).
-Všechny obrázky jsou automaticky číslované; pokud pod~popisem uvedete i~\texttt{label}, můžete se na~číslo odkazovat v~textu%
-\footnote{Což platí pro~všechny důležité objekty v~\LaTeX{}u; takto v~textu výše odkazujeme na~aktuální kapitolu.}%
-.
-
-\begin{figure}[ht]
-\begin{mdframed}
-\onehalfspacing
-\begin{verbatim}
-\begin{figure}[ht]
-    \onehalfspacing
-    \centering
-    \includegraphics{cesta/k/souboru} 
-    \caption{Popis obrázku}
-    \label{fig:label}
-\end{figure}
-\end{verbatim}
-\end{mdframed}
-\end{figure}
-\FloatBarrier
-
-\subsection{Matematika a~vzorce}
+\clearpage
+\section{Matematika a~vzorce}
 
 Matematika může být sázena ve~dvou režimech.
 
@@ -223,6 +196,9 @@ $E \left\{ \chi^2(n) \right\} = E(U_1^2 + \cdots + U_n^2) = n$
 \end{figure}
 \FloatBarrier
 
+\clearpage
+\section{Plovoucí prostředí}
+
 \subsection{Tabulky}
 
 Tabulky se sází prostředím \texttt{table} a \texttt{tabular}%
@@ -235,6 +211,7 @@ Stejně jako u~obrázků se v~něm používají příkazy \texttt{caption} nebo 
 V~česky sázeném dokumentu se dle normy ISO sází nadpisy tablek \emph{pod} obrázky a~grafy, ale \emph{nad} tabulky.
 
 Prostředí \texttt{tabular} má povinný parametr kterým definujete počet, zarovnání a~oddělení sloupců: \verb_{|l|c|c|r|}_ je značka pro~čtyři sloupce zarovnané vlevo, do~středu, do~středu a~vpravo, s~ohraničením.
+
 Uvnitř tabulky se konec řádku značí užitím \verb|\\| (stejně jako zalomení řádku v~textu), pole tabulky se oddělují znakem \verb|&|.
 
 \begin{mdframed}
@@ -242,7 +219,7 @@ Uvnitř tabulky se konec řádku značí užitím \verb|\\| (stejně jako zalome
 \begin{table}[ht]
     \onehalfspacing
     \centering
-    \begin{tabular}{c|c|c}
+    \begin{tabular}{|c|c|c|}
         num 1 & num 2 & num 3 \\
         \hline\hline
         1 & 1 & 1 \\
@@ -253,7 +230,7 @@ Uvnitř tabulky se konec řádku značí užitím \verb|\\| (stejně jako zalome
 \end{table}
 \end{verbatim}
     \label{tbl:dvanact_hodnot}
-    \begin{tabular}{c|c|c}
+    \begin{tabular}{|c|c|c|}
         num 1 & num 2 & num 3 \\
         \hline\hline
         1 & 1 & 1 \\
@@ -262,4 +239,42 @@ Uvnitř tabulky se konec řádku značí užitím \verb|\\| (stejně jako zalome
         4 & 4 & 4 \\ 
     \end{tabular}
 \end{mdframed}
+\FloatBarrier
+
+
+\subsection{Obrázky}
+\label{sec:obrazky}
+
+Do~složky \texttt{images/} nahrajte obrázek ve~formátu \texttt{jpg}, \texttt{png} nebo \texttt{pdf}.
+
+Pro~jeho vložení do~textu se používá prostředí \texttt{figure}, samotné vložení zajištuje příkaz \texttt{includegraphics}.
+Nemusíte psát příponu, \LaTeX{} vybere za~vás tu nejlepší možnost.
+
+Je zvykem také uvádět popis obrázku (\texttt{caption}).
+Všechny obrázky jsou automaticky číslované; pokud pod~popisem uvedete i~\texttt{label}, můžete se na~číslo odkazovat v~textu%
+\footnote{Což platí pro~všechny důležité objekty v~\LaTeX{}u; takto v~textu výše odkazujeme na~aktuální kapitolu.}%
+.
+
+\begin{figure}[ht]
+\begin{mdframed}
+\onehalfspacing
+\centering
+
+\begin{verbatim}
+\begin{figure}[ht]
+    \onehalfspacing
+    \centering
+    \includegraphics[width=\textwidth]{images/github-commit-hash}
+    \caption{Ukázka zkopírování git hashe repozitáře na~GitHub.com}
+    \label{img:github-commit-hash}
+\end{figure}
+\end{verbatim}
+
+\vspace*{1em}
+
+\includegraphics[width=\textwidth]{images/github-commit-hash}
+\caption{Ukázka zkopírování git hashe repozitáře na~GitHub.com}
+\label{img:github-commit-hash}
+\end{mdframed}
+\end{figure}
 \FloatBarrier
