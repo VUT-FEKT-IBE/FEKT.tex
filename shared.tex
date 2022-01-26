@@ -158,6 +158,17 @@
 % Přepnutí prostředí 'code' do režimu výpisu kódu
 \newenvironment{code}{\captionsetup{type=listing}}{}
 
+\lstset{
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    tabsize=4,
+    columns=fixed,
+    showstringspaces=false,
+    showtabs=false,
+    keepspaces,
+}
+
 % Balíček 'minted' budeme používat pouze pokud je jeho hodnota nastavena na 'true'
 \providecommand{\docminted}{false}
 \ifthenelse{\equal{\docminted}{true}}
