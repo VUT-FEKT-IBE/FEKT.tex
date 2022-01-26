@@ -3,31 +3,33 @@
 
 \subsection{Co je \LaTeX}
 
-\LaTeX{} je sázecí systém pro tvorbu odborných dokumentů.
-Uživatel píše \emph{plain text}, který je pak dle použitých značek převeden na výsledný dokument.
-Oproti tomu například ve Wordu píšmene formátovaný text, jinak také \emph{\enquote{What You See Is What You Get}}.
-Hlavními výhodami \LaTeX{}u jsou především vysoká typografická kvalita, jednoduchá přenositelnost (všichni známe rozbité Word dokumenty) a jednotnost stylu (velikosti písma, typy fontů) -- vše je definováno v šabloně.
+\LaTeX{} je sázecí systém pro~tvorbu (nejen) odborných dokumentů.
+Uživatel píše \emph{plain text}, který je pak dle použitých značek převeden na~výsledný dokument.
+Oproti tomu programy typu Microsoft Word píšou rovnou formátovaný text, tzv. WYSIWYG (\emph{\enquote{What You See Is What You Get}}).
+
+Hlavními výhodami \LaTeX{}u jsou především vysoká typografická kvalita, jednoduchá přenositelnost (všichni známe rozbité Word dokumenty) a jednotnost stylu (velikosti písma, typy fontů) či možnost \LaTeX{}ové dokumenty verzovat \texttt{git}em.
 
 \subsection{LaTeX na FEKTu}
 
-Všechny oficiální šablony pro studium na FEKTu můžete najít na 
+Všechny oficiální šablony pro studium na FEKTu můžete najít na~
 \url{https://latex.feec.vutbr.cz/}.
+
+Také doporučujeme předmět \href{https://www.vut.cz/studenti/predmety/detail/224331?apid=224331}{BPC-ZSG}, který je na~VUT FEKT povinně volitelný předmět programů BPC-AUD, BPC-IBE, BPC-SEE a~BPC-TLI.
 
 \subsection{Jak na Overleaf?}
 
 Nejdříve si z \url{https://github.com/VUT-FEKT-IBE/FEKT.tex}
-stáhneme tuto šablonu.
-Dále si na overleafu vybereme možnost \texttt{New Project > Upload Project} a vybereme staženou šablonu.
+stáhněte šablonu FEKT.tex (jejíž výstup právě čtete).
+V~Overleaf vyberte možnost \texttt{New Project > Upload Project} a~nahrajte staženou šablonu.
 
-Po otevření šablony najedeme na menu v levém horním rohu v možností \texttt{Main Document} a vybereme \texttt{main.tex} nebo \texttt{text/01.tex}.
-Dokument samotný pak kompilujeme \textbf{mimo} \texttt{shared.tex}.
-Jinak se PDF nevytvoří.
+Po~otevření šablony otevřete menu v~levém horním rohu v~možnosti \texttt{Main Document} a~vyberete \texttt{main.tex} nebo \texttt{text/01.tex}.
+Dokument samotný pak kompilujte \emph{v~jakémkoliv aktivním \texttt{.tex} souboru} krom \texttt{shared.tex}.
 
-Pokud chcete oddělit jednotlivé textové soubory a vkládat je do dokumentu zvlášť, stačí v záložce \texttt{text} vytvořit nový soubor s příponou \texttt{.tex}.
-V souboru \texttt{main.tex} pak daný soubor načteme pomocí příkazu \verb|\include{file_path}|.
+Pokud chcete oddělit jednotlivé textové soubory a~vkládat je do~dokumentu zvlášť, stačí v~záložce \texttt{text} vytvořit nový soubor s~příponou \texttt{.tex}.
+V~souboru \texttt{main.tex} pak daný soubor načtěte pomocí příkazu \verb|\include{file_path}|.
 
-Dokument samotný kompilujeme pomocí tlačítka \texttt{Recompile}, případně pomocí zkratky CTRL+ENTER.
-Tlačítko pro stažení PDF souboru se nachází vedle \texttt{Recompile}.
+Dokument samotný se kompiluje pomocí tlačítka \texttt{Recompile}, případně zkratkou \texttt{Ctrl} + \texttt{Enter}.
+Tlačítko pro~stažení PDF souboru se nachází vedle \texttt{Recompile}.
 
 
 \clearpage
@@ -54,17 +56,17 @@ V~půlce této věty řádek lámu pouze v~kódu
 a~text je přesto sázen dál.
 
 \begin{verbatim}
-V~půlce této věty řádek lámu použitím\verb|\\|\\
+V~půlce této věty řádek lámu\\
 a~text tak není sázen až do~konce, i~když pro~to prostor má.
 \end{verbatim}
 
-V~půlce této věty řádek lámu použitím\verb|\\|\\
+V~půlce této věty řádek lámu\\
 a~text tak není sázen až do~konce, i~když pro~to prostor má.
 \end{mdframed}
 \end{figure}
 
 Nezlomitelná mezera se píše pomocí vlnovky (\texttt{\~}): \verb|v~domě|.
-Používejte ji před všemi předložkami a~spojkami, ty na~konce řádků nepatří.
+Používejte ji za~všemi předložkami a~spojkami, ty na~konce řádků nepatří.
 
 Psát ji vždy a~všude (a~ne jen když se zrovna dostane na~konec řádku z~důvodu sazby) má několik velkých výhod.
 Především vám to ušetří čas: nebudete si při psaní textu hlídat jestli náhodou na~konci řádku nejste a~můžete se soustředit pouze na~obsah.
@@ -126,11 +128,16 @@ Tak je strukturován i~tento dokument.
 značka & ukázka \\
 \hline \hline
 \texttt{textbf} & \textbf{tučné písmo} \\
-\texttt{textit} & \emph{kurzíva} \\
+\texttt{emph} & \emph{kurzíva} \\
 \texttt{enquote} & \enquote{text v~uvozovkách} \\
 \texttt{texttt} & \texttt{strojový text} \\
+\texttt{underline} & \underline{podtržený text} \\
 \end{tabular}
 \end{table}
+\FloatBarrier
+
+Pamatujte však, že se tyto značky mají používat pouze výjimečně, protože na~sebe poutají pozornost.
+
 
 \clearpage
 \section{Matematika a~vzorce}
@@ -208,7 +215,7 @@ Tabulky se sází prostředím \texttt{table} a \texttt{tabular}%
 }%
 .
 Stejně jako u~obrázků se v~něm používají příkazy \texttt{caption} nebo \texttt{label}.
-V~česky sázeném dokumentu se dle normy ISO sází nadpisy tablek \emph{pod} obrázky a~grafy, ale \emph{nad} tabulky.
+V~česky sázeném dokumentu se dle normy ISO sází nadpisy tabulek \emph{pod} obrázky a~grafy, ale \emph{nad} tabulky.
 
 Prostředí \texttt{tabular} má povinný parametr kterým definujete počet, zarovnání a~oddělení sloupců: \verb_{|l|c|c|r|}_ je značka pro~čtyři sloupce zarovnané vlevo, do~středu, do~středu a~vpravo, s~ohraničením.
 
@@ -241,7 +248,6 @@ Uvnitř tabulky se konec řádku značí užitím \verb|\\| (stejně jako zalome
 \end{mdframed}
 \FloatBarrier
 
-
 \subsection{Obrázky}
 \label{sec:obrazky}
 
@@ -251,8 +257,13 @@ Pro~jeho vložení do~textu se používá prostředí \texttt{figure}, samotné 
 Nemusíte psát příponu, \LaTeX{} vybere za~vás tu nejlepší možnost.
 
 Je zvykem také uvádět popis obrázku (\texttt{caption}).
-Všechny obrázky jsou automaticky číslované; pokud pod~popisem uvedete i~\texttt{label}, můžete se na~číslo odkazovat v~textu%
-\footnote{Což platí pro~všechny důležité objekty v~\LaTeX{}u; takto v~textu výše odkazujeme na~aktuální kapitolu.}%
+Všechny obrázky jsou automaticky číslované; pokud pod~popisem uvedete i~\texttt{label}, můžete se na~číslo odkazovat v~textu příkazem
+\verb|\ref{}|%
+\footnote{
+    To platí pro~všechny důležité objekty v~\LaTeX{}u;
+    takto v~textu výše odkazujeme na~aktuální kapitolu voláním
+    \texttt{\textbackslash{}ref\{sec:obrazky\}}
+}%
 .
 
 \begin{figure}[ht]
@@ -278,3 +289,34 @@ Všechny obrázky jsou automaticky číslované; pokud pod~popisem uvedete i~\te
 \end{mdframed}
 \end{figure}
 \FloatBarrier
+
+\subsection{O~plovoucích prostředích}
+
+\LaTeX{} většinou nesází obrázek či tabulku přímo v~místě kde ji definujete.
+Pokud je objekt plovoucího prostředí (obrázek, tabulka) moc velký a~na~dané místo by vysázen být nemohl, je umístěn na~jiné vhodné místo.
+
+Od~toho slouží nepovinné argumenty které plovoucí prostředí mají:
+\\
+\verb|\begin{table}[ht]|
+
+Písmena znamenají typ umístění -- \LaTeX{} vybere to nejvhodnější z~nich.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|}
+    \texttt{h} & \emph{Here}, místo kde je prostředí definováno \\
+    \texttt{t} & \emph{Top}, nejbližší horní strana \\
+    \texttt{b} & \emph{Bottom}, nejbližší spodní strana \\
+    \texttt{p} & \emph{Page}, zvláštní strana jen pro~plovoucí objekty \\
+    \end{tabular}
+\end{table}
+\FloatBarrier
+
+Volba \texttt{h} sama o~sobě bývá tak špatná, že je automaticky \LaTeX{}em nahrazována volbou \texttt{ht}.
+Pokaždé když se začne sázet nová strana, jsou vyprázdněny zásobníky plovoucích prostředí, a~až po~nich je sázen text.
+
+Pokud výchozí chování vypadá špatně a~plovoucí objekt je vysázen nevhodně, můžete za~tabulku umístit příkaz \verb|\FloatBarrier| (z~balíčku \texttt{placeins}) -- ten vynutí vyprázdnění všech zásobníků než se začne sázet text.
+
+Toho využívá i~tento dokument; ukázkové tabulky jsou tak vždy vysázeny dřív než text který s~nimi už nesouvisí.
+Pro~delší texty výchozí chování není problematické a~naopak pomáhá udržet konzistenci textu.
+Zde jsou však obsaženy spíš kratší odstavce které spolu přímo nesouvisí, a~tabulka, která opožděně skáče do~nového nezávislého textu, ruší pozornost čtenáře.
