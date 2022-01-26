@@ -1,34 +1,45 @@
 \section{LaTeX rychlokurz}
 \subsection{\LaTeX}
-LaTeX je sázecí systém pro tvorbu odborných dokumentů. Uživatel píše plain text, který je pak dle použitých značek převeden na výsledný dokument. Oproti tomu například ve Wordu píšmene formátovaný text, jinak také \enquote{What You See Is What You Get}. Hlavními výhodami LaTeXu jsou především vysoká typografická kvalita, jednoduchá přenositelnost (už žádné rozbité word dokumenty) a jednotnost stylu (velikosti písma, typy fontů\dots - vše je definováno v šabloně).
+LaTeX je sázecí systém pro tvorbu odborných dokumentů.
+Uživatel píše plain text, který je pak dle použitých značek převeden na výsledný dokument.
+Oproti tomu například ve Wordu píšmene formátovaný text, jinak také \enquote{What You See Is What You Get}.
+Hlavními výhodami LaTeXu jsou především vysoká typografická kvalita, jednoduchá přenositelnost (už žádné rozbité word dokumenty) a jednotnost stylu (velikosti písma, typy fontů\dots - vše je definováno v šabloně).
 
 \subsection{LaTeX na FEKTu}
+
 Všechny oficiální šablony pro studium na FEKTu můžete najít na 
 \url{https://latex.feec.vutbr.cz/}
 
 \subsection{Jak na Overleaf?}
+
 Nejdříve si z \url{https://github.com/VUT-FEKT-IBE/FEKT.tex}
-stáhneme tuto šablonu. Dále si na overleafu vybereme možnost \texttt{New Project > Upload Project} a vybereme staženou šablonu.
+stáhneme tuto šablonu.
+Dále si na overleafu vybereme možnost \texttt{New Project > Upload Project} a vybereme staženou šablonu.
 
-Po otevření šablony najedeme na menu v levém horním rohu v možností \texttt{Main Document} a vybereme \texttt{main.tex} nebo \texttt{text/01.tex}. Dokument samotný pak kompilujeme \textbf{mimo} \texttt{shared.tex}. Jinak se PDF nevytvoří.
+Po otevření šablony najedeme na menu v levém horním rohu v možností \texttt{Main Document} a vybereme \texttt{main.tex} nebo \texttt{text/01.tex}.
+Dokument samotný pak kompilujeme \textbf{mimo} \texttt{shared.tex}.
+Jinak se PDF nevytvoří.
 
-Pokud chcete oddělit jednotlivé textové soubory a vkládat je do dokumentu zvlášť, stačí v záložce \texttt{text} vytvořit nový soubor s příponou \texttt{.tex}. V souboru \texttt{main.tex} pak daný soubor načteme pomocí příkazu \verb|\include{file_path}|.
+Pokud chcete oddělit jednotlivé textové soubory a vkládat je do dokumentu zvlášť, stačí v záložce \texttt{text} vytvořit nový soubor s příponou \texttt{.tex}.
+V souboru \texttt{main.tex} pak daný soubor načteme pomocí příkazu \verb|\include{file_path}|.
 
-Dokument samotný kompilujeme pomocí tlačítka \texttt{Recompile}, případně pomocí zkratky CTRL+ENTER. Tlačítko pro stažení PDF souboru se nachází vedle \texttt{Recompile}.
+Dokument samotný kompilujeme pomocí tlačítka \texttt{Recompile}, případně pomocí zkratky CTRL+ENTER.
+Tlačítko pro stažení PDF souboru se nachází vedle \texttt{Recompile}.
+
 
 
 \subsection{Struktura}
 \begin{itemize}
-    \item Pro vytvoření\uv{hlavního nadpisu} (1.; 2. \dots) použijeme příkaz \verb|\section{text}|, jednotlivé oddíly se číslují automaticky vzesupně. 
+    \item Pro vytvoření\uv{hlavního nadpisu} (1.; 2. \dots) použijeme příkaz \verb|\section{text}|, jednotlivé oddíly se číslují automaticky vzesupně.
     \item Pro vytvoření podnadipsů (1.1; 2.2 \dots) použijeme příkaz  \verb|\subsection{text}|. Stejně jako u hlavního nadpisu se čísluje automaticky
    |
     \item \textbf{Itemizace:} Pro itemizaci použijeme prostředí itemize
-    
+
     Jednotlivé body oddělujeme pomocí \verb|\item|.
     \item \textbf{Enumerace:} Principielně funguje stejně jako itemizace, použijeme prostředí \texttt{enumerate}  Jednotlivé body jsou pak místo označení pomlček  očíslovány
     \item U itemizace a enumerace můžeme prostředí do sebe vnořovat
 
-  
+
     \begin{multicols}{2}
     [ITEMIZACE]
     \setlength{\columnsep}{10cm}
@@ -42,7 +53,7 @@ Dokument samotný kompilujeme pomocí tlačítka \texttt{Recompile}, případně
     \end{lstlisting}
     \columnbreak
    \begin{centering}
-     
+
    \end{centering}
      \begin{itemize}
         \item text1
