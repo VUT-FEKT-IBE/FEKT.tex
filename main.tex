@@ -212,6 +212,21 @@
     % Pokud je v dokumentu 'minted' prostředí, dokument se nepodaří přeložit.
 }
 
+%%%%%%%%%%%%%%%%%%%
+% VLASTNÍ PŘÍKAZY %
+%%%%%%%%%%%%%%%%%%%
+
+\newcounter{todo}
+\newcommand{\TODO}[1]{%
+    \addtocounter{todo}{1}%
+    \textcolor{red}{%
+    \textbf{\sffamily\small{TODO \thetodo}%
+    \ifthenelse{\equal{#1}{}}{}{:}%
+    } %
+    #1%
+    }%
+}
+
 %%%%%%%%%%%
 % TITULKA %
 %%%%%%%%%%%
