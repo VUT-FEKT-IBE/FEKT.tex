@@ -1,26 +1,254 @@
-% Povinný argument: Kód předmětu
-\newcommand{\subject}{FEKT-tex}
-% Povinný argument: Název předmětu
-\newcommand{\subjectname}{Univerzální šablona}
-% Povinný argument: Seznam autorů
+%%%%%%%%%%%%%%%%%%%%%%
+% NASTAVENÍ FEKT.TEX %
+%%%%%%%%%%%%%%%%%%%%%%
+
+% Pokud následující řádky zakomentujete, na titulní straně se nezobrazí.
+
+% Nadpis dokumentu (kód předmětu)
+\newcommand{\name}{FEKT.tex}
+% Podnadpis dokumentu (název předmětu)
+%\newcommand{\subname}{}
+% Seznam autorů
 \newcommand{\authors}{Studenti IBE}
-% Povinný argument: Seznam korektorů
-\newcommand{\corrections}{Studenti IBE}
-% Nepovinný argument: Popis dokumentu
-\newcommand{\docdesc}{Dokumentace předmětu}
-% Nepovinný argument: Cílová skupina dokumentu
+% Seznam korektorů
+%\newcommand{\corrections}{}
+% Popis dokumentu
+\newcommand{\docdesc}{Univerzální šablona pro~český text}
+% Zařazení dokumentu (studijní program)
 \newcommand{\docgroup}{Informační bezpečnost, FEKT VUT}
-% Nepovinný argument: URL repozitáře nebo jiný odkaz na dokument
+% Odkaz
 \newcommand{\docurl}{https://github.com/VUT-FEKT-IBE/FEKT.tex}
 
-% Přepsáním argumentu na 'false' vypnete balíček 'minted' pro sázení kódu.
+% Přepsáním argumentu na 'true' zapnete balíček 'minted' pro sázení kódu.
 % Pro jeho použití lokálně musíte mít v systému dostupný Python 3, python
 % knihovnu 'minted' a PDFLaTeX musíte spouštět s argumentem '-shell-escape'.
 % Místo něj můžete použít prostředí 'lstlisting'.
-\newcommand{\docminted}{true}
+\newcommand{\docminted}{false}
 
-\input{shared}
+
+%%%%%%%%%%%%%%%%%%%%
+% OBECNÉ NASTAVENÍ %
+%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\fekttexversion}{2.0}
+
+\documentclass[
+    % Velikost základního písma je 12 bodů
+    12pt,
+    % Formát papíru je A4
+    a4paper,
+    % Oboustranný tisk
+    twoside,
+    % Záložky a metainformace ve výsledném PDF budou v kódování unicode
+    unicode,
+]{article}
+
+% Kódování zdrojových souborů
+\usepackage[utf8]{inputenc}
+% Kódování výstupního souboru
+\usepackage[T1]{fontenc}
+% Podpora češtiny
+\usepackage[czech]{babel}
+
+% Geometrie stránky
+\usepackage[
+    % Horní a dolní okraj
+    tmargin=25mm,
+    bmargin=25mm,
+    % Vnitřní a vnější okraj
+    lmargin=30mm,
+    rmargin=20mm,
+    % Velikost zápatí
+    footskip=17mm,
+    % Vypnutí záhlaví
+    nohead,
+]{geometry}
+
+% Zajištění kopírovatelnosti a prohledávanosti vytvořených PDF
+\usepackage{cmap}
+% Podmínky (pro použití v titulní straně)
+\usepackage{ifthen}
+
+%%%%%%%%%%%%%%%
+% FORMÁTOVÁNÍ %
+%%%%%%%%%%%%%%%
+
+% Nastavení stylu nadpisů
+\usepackage{sectsty}
+% Formátování obsahů
+\usepackage{tocloft}
+\setcounter{tocdepth}{1}
+% Odstranění mezer mezi řádky v seznamech
+\usepackage{enumitem}
+\setlist{nosep}
+\setitemize{leftmargin=1em}
+\setenumerate{leftmargin=1.5em}
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemiii}{$\cdot$}
+\renewcommand{\labelitemiv}{--}
+% Sázení správných uvozovek pomocí '\enquote{}'
+\usepackage{csquotes}
+% Vynucení umístění poznámek pod čarou vespod stránky
+\usepackage[bottom]{footmisc}
+% Automatické zarovnání textu k předcházení vdov a parchantů
+\usepackage[defaultlines=3,all=true]{nowidow}
+% Zalomení části textu pokud není na současné stránce dost místa
+\usepackage{needspace}
+% Nastavení řádkování
+\usepackage{setspace}
+\onehalfspacing
+% Změna odsazení odstavců
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+% Bezpatkové sázení nadpisů
+\allsectionsfont{\sffamily}
+% Změna formátování nadpisu a podnadpisů v Obsahu
+\renewcommand{\cfttoctitlefont}{\Large\bfseries\sffamily}
+\renewcommand{\cftsubsecdotsep}{\cftdotsep}
+
+% Použití moderní/aktualizované sady písem
+\usepackage{lmodern}
+
+%%%%%%%%%%%
+% NADPISY %
+%%%%%%%%%%%
+
+\usepackage{titlesec}
+
+\titlespacing*{\section}{0pt}{10pt}{-0.2\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.2\baselineskip}{-0.2\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{0.2\baselineskip}{-0.2\baselineskip}
+\titlespacing*{\paragraph}{0pt}{0pt}{1em}
+
+%%%%%%%%%%
+% ODKAZY %
+%%%%%%%%%%
+
+% Tvorba hypertextových odkazů
+\usepackage[
+    breaklinks=true,
+    hypertexnames=false,
+]{hyperref}
+% Nastavení barvení odkazů
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OBRÁZKY, GRAFY, TABULKY %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Vkládání obrázků
+\usepackage{graphicx}
+\usepackage{subfig}
+% Nastavení popisů obrázků, výpisů a tabulek
+\usepackage{caption}
+\captionsetup{justification=centering}
+% Grafy a vektorové obrázky
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+% Složitější tabulky
+\usepackage{tabularx}
+\usepackage{multicol}
+
+% Sázení osamocených float prostředí v horní části stránky
+\makeatletter
+\setlength{\@fptop}{0pt plus 10pt minus 0pt}
+\makeatother
+
+% Vynucení vypsání floating prostředí pomocí \FloatBarrier
+\usepackage{placeins}
+
+% Rámečky
 \usepackage{mdframed}
+
+%%%%%%%%%%%%%%
+% MATEMATIKA %
+%%%%%%%%%%%%%%
+
+% Sázení matematiky a matematických symbolů ('\mathbb{}')
+\usepackage{amsmath}
+\usepackage{amssymb}
+% Sázení fyzikálních veličin
+\usepackage{siunitx}
+
+%%%%%%%%%%%%%%%%%
+% ZDROJOVÉ KÓDY %
+%%%%%%%%%%%%%%%%%
+
+% Sazba zdrojových kódů
+\usepackage[formats]{listings}
+% Přepnutí prostředí 'code' do režimu výpisu kódu
+\newenvironment{code}{\captionsetup{type=listing}}{}
+
+\lstset{
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    tabsize=4,
+    columns=fixed,
+    showstringspaces=false,
+    showtabs=false,
+    keepspaces,
+}
+
+% Balíček 'minted' budeme používat pouze pokud je jeho hodnota nastavena na 'true'
+\providecommand{\docminted}{false}
+\ifthenelse{\equal{\docminted}{true}}
+{
+    % Sazba zdrojových kódů
+    \usepackage[newfloat]{minted}
+    % Nastavení barev 'minted' kódů
+    \usemintedstyle{pastie}
+}
+{
+    % \docminted není 'true', nic neprovádíme
+    % Pokud je v dokumentu 'minted' prostředí, dokument se nepodaří přeložit.
+}
+
+%%%%%%%%%%%
+% TITULKA %
+%%%%%%%%%%%
+
+\newcommand{\titulka}{
+    \vspace*{2em}
+    \begin{center}
+        \ifthenelse{\isundefined{\name}}{}{{\Huge \bfseries \name{}}}
+
+        \ifthenelse{\isundefined{\subname}}{}{{\huge \bfseries \subname{}}}
+
+        \vspace*{2em}
+
+        \ifthenelse{\isundefined{\docdesc}}{}{{\Large \docdesc}}
+
+        \vspace*{1em}
+
+        \ifthenelse{\isundefined{\docgroup}}{}{\docgroup}
+
+        \ifthenelse{\isundefined{\docurl}}{}{\url{\docurl}}
+    \end{center}
+
+    \vfill
+
+    \ifthenelse{\isundefined{\authors}}{}{\authors{}}
+    \ifthenelse{\isundefined{\corrections}}{}{\\\small (korektury \corrections{})}
+
+    {}{\small \today}
+    \\{\small FEKT.tex \fekttexversion{}}
+
+    \thispagestyle{empty}
+    \newpage
+}
+
+%%%%%%%%%%%%
+% DOKUMENT %
+%%%%%%%%%%%%
 
 \begin{document}
 
@@ -31,6 +259,6 @@
 
 \setcounter{page}{0}
 
-\include{text/01}
+\include{text/00_fekt-tex}
 
 \end{document}
