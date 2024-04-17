@@ -20,6 +20,7 @@ jobs:
   # build šablony
   build:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
@@ -37,7 +38,6 @@ jobs:
 
       # nahrání pro pozdější stažení
       - name: Upload artifact
-        id: upload-artifact
         uses: actions/upload-artifact@v4
         with:
           # název zip souboru se specifickým jménem předmětu
